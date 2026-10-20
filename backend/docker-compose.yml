@@ -2,11 +2,12 @@ services:
   db-turnero:
     image: mysql:8.0
     container_name: mysql-turnero
+    # Las credenciales se leen del archivo backend/.env (ver backend/.env.example)
     environment:
-      MYSQL_USER: admin
-      MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: turnos_medicos_bd
-      MYSQL_PASSWORD: admin
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME:-turnos_medicos_bd}
       TZ: America/Argentina/Buenos_Aires
     ports:
       - "3307:3306"  # Usa 3307 si 3306 ya está ocupado
@@ -15,7 +16,8 @@ services:
       - turnero-mysqldata:/var/lib/mysql             # Datos persistentes
       - /usr/share/zoneinfo:/usr/share/zoneinfo:ro
     healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uadmin -padmin"]
+      # $$ hace que la variable se lea dentro del contenedor, no en este archivo
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u$$MYSQL_USER -p$$MYSQL_PASSWORD"]
       interval: 5s
       timeout: 3s
       retries: 10

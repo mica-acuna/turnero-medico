@@ -14,10 +14,10 @@ export default function Login() {
     const navigate = useNavigate();
 
     const handleLogin = () => {
-        console.log('DEBUG LOGIN:', usuario, contrasena);
+        // Login de demostración: los usuarios están fijos en el frontend.
+        // No hay autenticación real en el backend (ver "Limitaciones conocidas" en el README).
         // ADMIN
         if (usuario === 'admin' && contrasena === '1234') {
-            console.log('ENTRÓ COMO ADMIN');
             login('administrador', 'administrador', 2);
             navigate('/principal');
             return;
@@ -25,8 +25,6 @@ export default function Login() {
 
         // MÉDICO
         if (usuario === 'medico' && contrasena === '1234') {
-            console.log('ENTRÓ COMO MÉDICO');
-
             login('medico', 'medico', 1);
 
             navigate('/principal');
