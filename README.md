@@ -98,5 +98,5 @@ Abrí http://localhost:5173. Usuarios de demostración: `admin` / `1234` (admini
 | Integrante | Aportes principales |
 | --- | --- |
 | [Micaela Acuña](https://github.com/mica-acuna) | Frontend del panel médico (agenda, atención de turnos, cierre de consulta y recetas), registro de turnos, inicio de sesión y menús por rol |
-| [matipe1](https://github.com/matipe1) | A completar |
-| [Taritto](https://github.com/Taritto) | A completar |
+| [matipe1](https://github.com/matipe1) | Reportes (PDF y gráficos), vista de registro de turnos, conexión entre backend y frontend (CORS), modelos, repositorios y servicios del backend |
+| [Taritto](https://github.com/Taritto) | Patrón State para los estados del turno, cancelación de agenda, páginas del panel de administración, servicios y repositorios del backend |
